@@ -1,0 +1,35 @@
+{
+  "Disciplinas": [
+    {
+      "nome": "Matemática",
+      "recursos": [
+        {
+          "titulo": "Álgebra Linear",
+          "tipo": "Livro",
+          "obrigatorio": true,
+          "descricao": "Apontamentos, Instituto Superior Técnico - Departamento de Matemática",
+          "url": "https://github.com/DiogoCastanho"
+        },
+        {
+          "titulo": "Análise Matemática || FCTUC Folha 1 (Sucessões e Séries) - 4/5",
+          "tipo": "Vídeo",
+          "obrigatorio": false,
+          "descricao": "Aula introdutória às séries numéricas.",
+          "url": "https://exemplo.com/series"
+        }
+      ]
+    },
+    {
+      "nome": "Programação",
+      "recursos": [
+        {
+          "titulo": "Model view Controller (MVC)",
+          "tipo": "Artigo",
+          "obrigatorio": true,
+          "descricao": "UI5 Essentials - artigo sobre MVC.",
+          "url": "https://exemplo.com/mvc-ui5"
+        }
+      ]
+    }
+  ]
+}

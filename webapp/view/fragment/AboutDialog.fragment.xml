@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+  <Dialog
+    title="{i18n>aboutTitle}"
+    draggable="true"
+    contentWidth="auto"
+    contentHeight="auto">
+    <content>
+      <VBox class="sapUiSmallMargin">
+        <Text text="{i18n>aboutText1}"/>
+        <Text text="{i18n>aboutText2}"/>
+        <Text text="{i18n>aboutText3}"/>
+        <Text text="{i18n>aboutText4}"/>
+      </VBox>
+    </content>
+    <beginButton>
+      <Button text="OK" type="Emphasized" press= ".onCloseAbout"/>
+    </beginButton>
+  </Dialog>
+</core:FragmentDefinition>
