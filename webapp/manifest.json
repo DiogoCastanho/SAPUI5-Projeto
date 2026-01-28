@@ -4,10 +4,12 @@
     "id": "bs.ui5.projeto",
     "type": "application",
     "title": "Catálogo de Recursos de Estudo",
-    "i18n": "i18n/i18n.properties",
-    "applicationVersion": {
-      "version": "1.0.0"
-    }
+    "i18n": {
+      "bundleName": "bs.ui5.projeto.i18n.i18n",
+      "supportedLocales": [""],
+      "fallbackLocale": "pt"
+    },
+    "applicationVersion": { "version": "1.0.0" }
   },
   "sap.ui": {
     "technology": "UI5",
