@@ -9,13 +9,14 @@
 - # **Autor**: Diogo Castanho
 - **Autor**: Diogo Castanho
 - **Local**: Setúbal, Portugal
-- **Data**: Janeiro 2026
+- **Data**: Janeiro 2025
 
 ---
 
 ## Descrição do Projeto
 
-Aplicação SAPUI5 desenvolvida para permitir aos estudantes consultar materiais de estudo organizados por disciplina. A aplicação oferece funcionalidades de pesquisa, visualização de detalhes e navegação intuitiva entre ecrãs, seguindo as boas práticas do framework SAPUI5.
+Esta aplicação SAPUI5 permite aos estudantes consultar recursos de estudo organizados por disciplina, tais como livros, vídeos e artigos.
+Inclui funcionalidades de pesquisa, navegação entre páginas, detalhes dos recursos e interface responsiva, seguindo as boas práticas SAPUI5 (MVC, models, routing, i18n e fragments).
 
 ### Objetivos Alcançados
 
