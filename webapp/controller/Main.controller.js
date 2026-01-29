@@ -11,11 +11,7 @@ sap.ui.define([
 
   return BaseController.extend("bs.ui5.projeto.controller.Main", {
 
-    /* ============================
-     * Ciclo de vida / Inicialização
-     * ============================ */
     onInit: function () {
-      // Busy enquanto o modelo JSON (manifest) carrega
       var oView = this.getView();
       oView.setBusyIndicatorDelay(0);
       oView.setBusy(true);
@@ -26,14 +22,10 @@ sap.ui.define([
           oView.setBusy(false);
         });
       } else {
-        // Fallback: retirar busy no próximo tick (caso já esteja carregado)
         setTimeout(function () { oView.setBusy(false); }, 0);
       }
     },
 
-    /* ============================
-     * Fragmento "Sobre"
-     * ============================ */
     onOpenAbout: function () {
       var that = this;
       if (!this._oAbout) {
@@ -59,9 +51,6 @@ sap.ui.define([
       }
     },
 
-    /* ============================
-     * Pesquisa (filtro por título)
-     * ============================ */
     _applyFilterToAllResourceLists: function (sQuery) {
       var oDiscList = this.byId("disciplinesList");
       var aItems = oDiscList.getItems();
@@ -89,23 +78,16 @@ sap.ui.define([
       this._applyFilterToAllResourceLists(sQuery);
     },
 
-    /* ============================
-     * Navegação Master → Detail
-     * ============================ */
     onItemPress: function (oEvent) {
       var sPath = oEvent.getSource().getBindingContext().getPath();
-      // Esperado: /Disciplinas/{i}/recursos/{j}
       var m = sPath.match(/\/Disciplinas\/(\d+)\/recursos\/(\d+)/);
       if (m) {
         this.getRouter().navTo("detail", { discIndex: m[1], resIndex: m[2] });
       }
     },
 
-    /* ============================
-     * Ordenação (Extra)
-     * ============================ */
     onSortChange: function (oEvent) {
-      var sKey = oEvent.getSource().getSelectedKey(); // "typeAsc" | "typeDesc" | "discAsc" | "discDesc"
+      var sKey = oEvent.getSource().getSelectedKey();
       if (sKey === "discAsc" || sKey === "discDesc") {
         this._sortDisciplines(sKey === "discDesc");
       } else {
@@ -132,95 +114,6 @@ sap.ui.define([
         }
       });
     },
-
-    /* ============================
-     * Adicionar Recurso (Extra)
-     * ============================ */
-    onAddResource: function () {
-      var that = this;
-      Fragment.load({
-        id: this.getView().getId(),
-        name: "bs.ui5.projeto.view.fragment.AddResource",
-        controller: this
-      }).then(function (oDialog) {
-        that._oAdd = oDialog;
-        that.getView().addDependent(that._oAdd);
-        that._resetAddForm();
-        that._oAdd.open();
-      }).catch(function (err) {
-        MessageBox.error("Falha a carregar o diálogo 'Adicionar Recurso'.\n\n" + err);
-      });
-    },
-
-    onCancelAddResource: function () {
-      if (this._oAdd) {
-        this._oAdd.close();
-      }
-    },
-
-    onSaveResource: function () {
-      var oV = this.getView();
-
-      // Controles do fragmento (instanciado com id da View → usar view.byId)
-      var oSelDisc  = oV.byId("selDisc");
-      var oInpTitle = oV.byId("inpTitle");
-      var oSelType  = oV.byId("selType");
-      var oSwMand   = oV.byId("swMand");
-      var oTaDesc   = oV.byId("taDesc");
-      var oInpUrl   = oV.byId("inpUrl");
-
-      // 1) Determinar a disciplina pelo BindingContext do item selecionado
-      var oSelItem = oSelDisc && oSelDisc.getSelectedItem();
-      if (!oSelItem) { MessageToast.show("Seleciona uma disciplina"); return; }
-      var oCtx = oSelItem.getBindingContext(); // contexto relativo a "/Disciplinas"
-      if (!oCtx) { MessageToast.show("Disciplina inválida"); return; }
-
-      // path do objeto disciplina, ex.: "/Disciplinas/0"
-      var sDiscPath = oCtx.getPath();
-
-      // 2) Construir o novo recurso
-      var oNew = {
-        titulo:      oInpTitle ? oInpTitle.getValue() : "",
-        tipo:        oSelType ? oSelType.getSelectedKey() : "",
-        obrigatorio: oSwMand ? !!oSwMand.getState() : false,
-        descricao:   oTaDesc ? oTaDesc.getValue() : "",
-        url:         oInpUrl ? oInpUrl.getValue() : ""
-      };
-
-      // 3) Validações mínimas
-      if (!oNew.titulo) { MessageToast.show("Preenche o título"); return; }
-      if (!oNew.tipo)   { MessageToast.show("Seleciona o tipo"); return; }
-
-      // 4) Inserir no array de recursos dessa disciplina
-      var oModel = oV.getModel();
-      var aRec = oModel.getProperty(sDiscPath + "/recursos") || [];
-      aRec.push(oNew);
-
-      // Commit das alterações (setProperty garante atualização dos bindings)
-      oModel.setProperty(sDiscPath + "/recursos", aRec);
-
-      // Fechar e limpar
-      if (this._oAdd) { this._oAdd.close(); }
-      MessageToast.show("Recurso adicionado");
-    },
-
-    // Utilitário para limpar o formulário do diálogo
-    _resetAddForm: function () {
-      var oV = this.getView();
-      var oSelDisc  = oV.byId("selDisc");
-      var oInpTitle = oV.byId("inpTitle");
-      var oSelType  = oV.byId("selType");
-      var oSwMand   = oV.byId("swMand");
-      var oTaDesc   = oV.byId("taDesc");
-      var oInpUrl   = oV.byId("inpUrl");
-
-      if (oSelDisc && oSelDisc.getFirstItem()) { oSelDisc.setSelectedItem(oSelDisc.getFirstItem()); }
-      if (oInpTitle) { oInpTitle.setValue(""); }
-      if (oSelType && oSelType.getFirstItem()) { oSelType.setSelectedItem(oSelType.getFirstItem()); }
-      if (oSwMand)   { oSwMand.setState(false); }
-      if (oTaDesc)   { oTaDesc.setValue(""); }
-      if (oInpUrl)   { oInpUrl.setValue(""); }
-    }
 
   });
 });
