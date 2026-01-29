@@ -30,14 +30,35 @@
                     titleStyle="H4"
                     class="sapUiSmallMarginBottom" />
 
+                <!-- Nível B: Pesquisa estendida à descrição -->
+                <Toolbar>
+                    <SearchField
+                        id="resourceSearchField"
+                        width="100%"
+                        placeholder="{i18n>searchPlaceholder}"
+                        search="onSearchResources"
+                        liveChange="onSearchResources">
+                        <layoutData>
+                            <ToolbarLayoutData shrinkable="true" />
+                        </layoutData>
+                    </SearchField>
+                    <ToolbarSpacer />
+                    <Button
+                        text="{i18n>close}"
+                        icon="sap-icon://clear-filter"
+                        press="onClearSearch"
+                        type="Transparent" />
+                </Toolbar>
+
                 <Table 
                     id="resourcesTable" 
                     items="{path: 'recursos'}"
                     growing="true"
                     growingThreshold="10"
-                    sticky="HeaderToolbar,ColumnHeaders">
+                    sticky="HeaderToolbar,ColumnHeaders"
+                    class="sapUiSmallMarginTop">
                     <columns>
-                        <Column width="25%"><Text text="{i18n>field.title}"/></Column>
+                        <Column width="25%"><Text text="{i18n>field.title}" /></Column>
                         <Column width="15%"><Text text="{i18n>field.type}" /></Column>
                         <Column width="35%"><Text text="{i18n>field.description}" /></Column>
                         <Column width="10%" hAlign="Center"><Text text="{i18n>field.mandatory}" /></Column>
@@ -48,11 +69,22 @@
                     <items>
                         <ColumnListItem>
                             <cells>
-                                <Text text="{titulo}" wrapping="true" renderWhitespace="true" class="sapUiSelectable" />
+                                <Text text="{titulo}" wrapping="true" />
                                 <Text text="{tipo}" />
-                                <Text text="{descricao}" wrapping="true" />
+                                <!-- Nível C: Validação defensiva - mostrar texto alternativo se descrição vazia -->
+                                <Text 
+                                    text="{
+                                        path: 'descricao',
+                                        formatter: '.formatter.formatDescription'
+                                    }" 
+                                    wrapping="true" />
                                 <CheckBox selected="{obrigatorio}" editable="false" />
-                                <Link text="{i18n>openResource}" href="{url}" target="_blank" />
+                                <!-- Nível C: Validação defensiva - esconder link se URL vazia -->
+                                <Link 
+                                    text="{i18n>openResource}" 
+                                    href="{url}" 
+                                    target="_blank"
+                                    visible="{= ${url} !== '' }" />
                             </cells>
                         </ColumnListItem>
                     </items>
