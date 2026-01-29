@@ -8,14 +8,14 @@
           "tipo": "Livro",
           "obrigatorio": true,
           "descricao": "Apontamentos, Instituto Superior Técnico - Departamento de Matemática",
-          "url": "https://ui5.sap.com/"
+          "url": "https://github.com/DiogoCastanho"
         },
         {
-          "titulo": "Análise Matemática || FCTUC Folha 1 (Sucessões e Séries) - 4/5",
+          "titulo": "Análise Matemática II FCTUC Folha 1",
           "tipo": "Vídeo",
           "obrigatorio": false,
           "descricao": "Aula introdutória às séries numéricas.",
-          "url": "https://ui5.sap.com/#/topic/bc410e94e46540efa02857e15aae583f"
+          "url": "https://exemplo.com/series"
         }
       ]
     },
@@ -23,11 +23,54 @@
       "nome": "Programação",
       "recursos": [
         {
-          "titulo": "Model view Controller (MVC)",
+          "titulo": "Clean Code",
+          "tipo": "E-book",
+          "obrigatorio": false,
+          "descricao": "Princípios de escrita de código limpo e sustentável.",
+          "url": "https://exemplo.com/clean-code"
+        }
+      ]
+    },
+    {
+      "nome": "Base de Dados",
+      "recursos": [
+        {
+          "titulo": "Modelação Entidade-Relacionamento",
+          "tipo": "PDF",
+          "obrigatorio": true,
+          "descricao": "Guia prático sobre normalização e diagramas ER.",
+          "url": "https://exemplo.com/db-er"
+        },
+        {
+          "titulo": "SQL Avançado",
+          "tipo": "Curso",
+          "obrigatorio": false,
+          "descricao": "Queries complexas e otimização de performance.",
+          "url": "https://exemplo.com/sql-adv"
+        }
+      ]
+    },
+    {
+      "nome": "Redes de Computadores",
+      "recursos": [
+        {
+          "titulo": "Protocolos TCP/IP",
           "tipo": "Artigo",
           "obrigatorio": true,
-          "descricao": "UI5 Essentials - artigo sobre MVC.",
-          "url": "https://ui5.sap.com/#/topic/2e61ab6c68a2480eb666c1927a707658?q=Obect%20Page%20Layout"
+          "descricao": "Estudo sobre IPV4, IPV6 e roteamento.",
+          "url": "https://exemplo.com/tcp-ip"
+        }
+      ]
+    },
+    {
+      "nome": "Sistemas Operativos",
+      "recursos": [
+        {
+          "titulo": "Comandos Linux (Cheat Sheet)",
+          "tipo": "Imagem",
+          "obrigatorio": false,
+          "descricao": "Guia rápido de comandos de terminal.",
+          "url": "https://exemplo.com/linux-cheat"
         }
       ]
     }

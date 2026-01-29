@@ -73,7 +73,7 @@
         },
         {
           "name": "detail",
-          "pattern": "disc/{discIndex}/res/{resIndex}",
+          "pattern": "disc/{discIndex}",
           "target": [
             "detail"
           ]

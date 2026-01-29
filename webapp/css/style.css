@@ -1,0 +1,13 @@
+.sapMPageHeader .sapMBarChild.sapMTitle {
+    font-weight: bold !important;
+}
+
+.customListStyle .sapMObjLTitle {
+    font-weight: bold !important;
+}
+
+.customListStyle .sapMObjLIcon {
+    font-size: 2rem !important;
+    width: 2rem !important;
+    height: 2rem !important;
+}

@@ -5,11 +5,14 @@ sap.ui.define([
   "sap/ui/model/FilterOperator",
   "sap/ui/model/Sorter",
   "sap/m/MessageToast",
-  "sap/m/MessageBox"
-], function (BaseController, Fragment, Filter, FilterOperator, Sorter, MessageToast, MessageBox) {
+  "sap/m/MessageBox",
+  "bs/ui5/projeto/model/formatter"
+], function (BaseController, Fragment, Filter, FilterOperator, Sorter, MessageToast, MessageBox, formatter) {
   "use strict";
 
   return BaseController.extend("bs.ui5.projeto.controller.Main", {
+
+    formatter: formatter,
 
     onInit: function () {
       var oView = this.getView();
@@ -51,40 +54,31 @@ sap.ui.define([
       }
     },
 
-    _applyFilterToAllResourceLists: function (sQuery) {
-      var oDiscList = this.byId("disciplinesList"); // get de todas as disciplinas
-      var aItems = oDiscList.getItems(); // retornar um array para cada disciplina
+    onSearch: function (oEvent) {
+      var sQuery = oEvent.getSource().getValue();
+      var oDiscList = this.byId("disciplinesList");
+      var oBinding = oDiscList && oDiscList.getBinding("items");
       var aFilters = [];
+
       if (sQuery) {
         aFilters.push(new Filter({
-          path: "titulo",
+          path: "nome",
           operator: FilterOperator.Contains,
           value1: sQuery,
           caseSensitive: false
         }));
       }
-      aItems.forEach(function (oCustomItem) {
-        var oPanel = oCustomItem.getContent()[0];
-        var oInnerList = oPanel.getContent()[0];
-        var oBinding = oInnerList.getBinding("items"); // controla que items aparecem na lista
-        if (oBinding) {
-          oBinding.filter(aFilters, "Application");
-        }
-      });
+
+      if (oBinding) {
+        oBinding.filter(aFilters, "Application");
+      }
     },
 
-    onSearch: function (oEvent) {
-      var sQuery = oEvent.getSource().getValue(); // texto q o utilizador escreveu
-      this._applyFilterToAllResourceLists(sQuery);
-    },
-
-    onItemPress: function (oEvent) {
+    onDiscPress: function (oEvent) {
       var sPath = oEvent.getSource().getBindingContext().getPath();
-      /* .getBindingContext()
-          retorna o binding desse item */
-      var m = sPath.match(/\/Disciplinas\/(\d+)\/recursos\/(\d+)/);
+      var m = sPath.match(/\/Disciplinas\/(\d+)/);
       if (m) {
-        this.getRouter().navTo("detail", { discIndex: m[1], resIndex: m[2] });
+        this.getRouter().navTo("detail", { discIndex: m[1] });
       }
     },
 
@@ -92,30 +86,16 @@ sap.ui.define([
       var sKey = oEvent.getSource().getSelectedKey();
       if (sKey === "discAsc" || sKey === "discDesc") {
         this._sortDisciplines(sKey === "discDesc");
-      } else {
-        this._sortAllResourceListsByType(sKey === "typeDesc");
       }
     },
 
     _sortDisciplines: function (bDescending) {
       var oDiscList = this.byId("disciplinesList");
-      var oBinding = oDiscList.getBinding("items");
+      var oBinding = oDiscList && oDiscList.getBinding("items");
       if (oBinding) {
         oBinding.sort([new Sorter("nome", bDescending)]);
       }
-    },
-
-    _sortAllResourceListsByType: function (bDescending) {
-      var oDiscList = this.byId("disciplinesList");
-      oDiscList.getItems().forEach(function (oCustomItem) {
-        var oPanel = oCustomItem.getContent()[0];
-        var oInnerList = oPanel.getContent()[0];
-        var oBinding = oInnerList.getBinding("items");
-        if (oBinding) {
-          oBinding.sort([new Sorter("tipo", bDescending)]);
-        }
-      });
-    },
+    }
 
   });
 });
