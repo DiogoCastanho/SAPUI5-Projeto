@@ -1,0 +1,16 @@
+{
+  "name": "bs-ui5-projeto",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Projeto SAPUI5 - Catálogo de Recursos de Estudo (Master→Detail)",
+  "scripts": {
+    "start": "ui5 serve -o index.html",
+    "serve": "ui5 serve -o index.html",
+    "build": "ui5 build",
+    "build:preload": "ui5 build --include-task=generateComponentPreload",
+    "lint": "echo \"(opcional) adiciona eslint se quiseres\" && exit 0"
+  },
+  "devDependencies": {
+    "@ui5/cli": "^3.0.0"
+  }
+}

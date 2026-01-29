@@ -1,0 +1,79 @@
+<mvc:View
+  controllerName="bs.ui5.projeto.controller.Main"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  core:require="{ formatter: 'bs/ui5/projeto/model/formatter' }"
+  displayBlock="true">
+
+  <Page id="mainPage" title="{i18n>appTitle}">
+    <headerContent>
+      <Button id="aboutBtn" icon="sap-icon://hint" tooltip="{i18n>about}" press="onOpenAbout"/>
+    </headerContent>
+
+    <subHeader>
+      <Bar>
+        <contentLeft>
+          <SearchField id="search"
+                       width="100%"
+                       placeholder="{i18n>searchPlaceholder}"
+                       search="onSearch"
+                       liveChange="onSearch"/>
+        </contentLeft>
+
+        <contentRight>
+            <Select
+              id="sortSelect"
+              width="auto"
+              change="onSortChange"
+              tooltip="{i18n>sortBy}">
+            <items>
+              <core:Item key="typeAsc"  text="{i18n>sortBy.typeAsc}"/>
+              <core:Item key="typeDesc" text="{i18n>sortBy.typeDesc}"/>
+              <core:Item key="discAsc"  text="{i18n>sortBy.discAsc}"/>
+              <core:Item key="discDesc" text="{i18n>sortBy.discDesc}"/>
+            </items>
+          </Select>
+        </contentRight>
+      </Bar>
+    </subHeader>
+
+    <content>
+      <List mode="None" id="disciplinesList" items="{path: '/Disciplinas', templateShareable:false }" showSeparators="All">
+        <CustomListItem>
+          <Panel headerText="{nome}" expandable="true" expanded="true" class="sapUiSmallMarginBeginEnd">
+            <content>
+
+              <List mode="None" items="{path: 'recursos', templateShareable:false }" showSeparators="All">
+                <CustomListItem type="Navigation" press="onItemPress">
+                  <HBox width="100%" justifyContent="SpaceBetween" alignItems="Start" class="sapUiSmallMargin">
+
+                    <VBox width="75%" renderType="Bare" class="sapUiSmallMarginBegin">
+                      <Text text="{descricao}" class="sapUiTinyMarginBottom"/>
+
+                      <HBox alignItems="Center" class="sapUiTinyMarginBottom">
+                        <core:Icon src="{path: 'tipo', formatter: 'formatter.iconByType'}"
+                                   size="1.5rem"
+                                   color="Default"
+                                   class="sapUiTinyMarginEnd"/>
+                        <Title text="{titulo}" level="H5"/>
+                      </HBox>
+
+                      <Link text="{i18n>openResource}" href="{url}" target="_blank"/>
+                    </VBox>
+
+                    <VBox width="30%" alignItems="Start" renderType="Bare" class="sapUiTinyMarginEnd">
+                      <ObjectStatus text="{path: 'obrigatorio', formatter: 'formatter.textObrigatorio'}"
+                                    state="{path: 'obrigatorio', formatter: 'formatter.stateByObrigatorio'}"/>
+                    </VBox>
+
+                  </HBox>
+                </CustomListItem>
+              </List>
+            </content>
+          </Panel>
+        </CustomListItem>
+      </List>
+    </content>
+  </Page>
+</mvc:View>
