@@ -52,7 +52,7 @@
                     }"
                     numberUnit=""
                     type="Navigation"
-                    icon="sap-icon://education"
+                    icon="sap-icon://folder"
                     press="onDiscPress" />
             </List>
         </content>

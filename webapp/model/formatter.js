@@ -2,11 +2,6 @@ sap.ui.define([], function () {
   "use strict";
 
   return {
-    /**
-     * Retorna ícone baseado no tipo de recurso
-     * @param {string} sTipo - Tipo do recurso
-     * @returns {string} Ícone SAP
-     */
     iconByType: function (sTipo) {
       switch ((sTipo || "").toLowerCase()) {
         case "livro": return "sap-icon://course-book";
