@@ -1,22 +1,22 @@
-# 📚 Catálogo de Recursos de Estudo - SAPUI5
+# Catálogo de Recursos de Estudo - SAPUI5
 
-## 🎓 Identificação do Projeto
+## Identificação do Projeto
 
 - **Instituição**: Deloitte + IPS (Instituto Politécnico de Setúbal)
-- **Unidade Curricular**: IPW - Interfaces Pessoa Web
+- **Unidade Curricular**: IPW
 - **Projeto**: Aplicação SAPUI5 - Catálogo de Recursos de Estudo
-- **Docente**: [Nome do Docente]
-- **Autor**: Diogo Castanho (Individual)
+- **Docente**: Vitor Ferreira
+- **Autor**: Diogo Castanho
 - **Local**: Setúbal, Portugal
-- **Data**: Janeiro 2025
+- **Data**: Janeiro 2026
 
 ---
 
-## 📋 Descrição do Projeto
+## Descrição do Projeto
 
 Aplicação SAPUI5 desenvolvida para permitir aos estudantes consultar materiais de estudo organizados por disciplina. A aplicação oferece funcionalidades de pesquisa, visualização de detalhes e navegação intuitiva entre ecrãs, seguindo as boas práticas do framework SAPUI5.
 
-### 🎯 Objetivos Alcançados
+### Objetivos Alcançados
 
 - ✅ Estrutura modular e bem organizada (MVC)
 - ✅ Models e Data Binding completos
@@ -30,7 +30,7 @@ Aplicação SAPUI5 desenvolvida para permitir aos estudantes consultar materiais
 
 ---
 
-## 🚀 Instruções de Execução
+## Instruções de Execução
 
 ### Pré-requisitos
 
@@ -71,7 +71,7 @@ npm test           # Executa testes (se configurados)
 
 ---
 
-## 🎨 Funcionalidades Implementadas
+## Funcionalidades Implementadas
 
 ### ✅ Funcionalidades Obrigatórias
 
@@ -112,9 +112,9 @@ npm test           # Executa testes (se configurados)
 
 ---
 
-## 🌟 Funcionalidades Extras Implementadas (Secção 14)
+## Funcionalidades Extras Implementadas (Secção 14)
 
-### 📊 Nível A - Informação Adicional (+1 valor)
+### Nível A - Informação Adicional (+1 valor)
 
 **✅ Implementado: Mostrar número total de recursos por disciplina**
 
@@ -130,7 +130,7 @@ number="{
 }"
 ```
 
-### 🔍 Nível B - Funcionalidade Moderada (+1 valor)
+### Nível B - Funcionalidade Moderada (+1 valor)
 
 **✅ Implementado: Pesquisa estendida à descrição**
 
@@ -151,7 +151,7 @@ new Filter({
 });
 ```
 
-### 🛡️ Nível C - Organização e Robustez (+1 valor)
+### Nível C - Organização e Robustez (+1 valor)
 
 **✅ Implementado: Validação defensiva dos dados do JSON**
 
@@ -176,7 +176,7 @@ url: sUrl || ""
 
 ---
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 webapp/
@@ -206,7 +206,7 @@ webapp/
 
 ---
 
-## 🔧 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **SAPUI5** v1.96.0+
 - **JavaScript ES6+**
@@ -214,42 +214,6 @@ webapp/
 - **JSON Model**
 - **sap.m Controls**
 - **sap.ui.core.routing**
-
----
-
-## 📊 Avaliação Estimada
-
-### Critérios Cumpridos
-
-| Critério                   | Pontos | Status      |
-| -------------------------- | ------ | ----------- |
-| **Básico**                 | 10-12  | ✅ Completo |
-| - Lista funcional          | ✓      | ✅          |
-| - Data binding             | ✓      | ✅          |
-| - i18n aplicado            | ✓      | ✅          |
-| **Intermédio**             | 13-15  | ✅ Completo |
-| - Múltiplas disciplinas    | ✓      | ✅          |
-| - MVC coerente             | ✓      | ✅          |
-| - Pesquisa funcional       | ✓      | ✅          |
-| - Código organizado        | ✓      | ✅          |
-| **Avançado**               | 16-18  | ✅ Completo |
-| - Formatters implementados | ✓      | ✅          |
-| - Fragment "Sobre"         | ✓      | ✅          |
-| - UX cuidada               | ✓      | ✅          |
-| **Excelência**             | 19-20  | ✅ Completo |
-| - Routing completo         | ✓      | ✅          |
-| - Detalhe rico             | ✓      | ✅          |
-| - Experiência polida       | ✓      | ✅          |
-| **Extras (Secção 14)**     | +3     | ✅ Completo |
-| - Nível A                  | +1     | ✅          |
-| - Nível B                  | +1     | ✅          |
-| - Nível C                  | +1     | ✅          |
-
-### 🎯 Nota Estimada: **20/20**
-
-**Base:** 19-20 pontos (Excelência)
-**Extras:** +3 pontos (1 de cada nível A, B, C)
-**Total:** 20/20 (limitado ao máximo)
 
 ---
 
@@ -276,33 +240,7 @@ webapp/
 
 ---
 
-## 🚀 Melhorias Futuras Sugeridas
-
-1. **Backend Integration**
-   - Conectar a um serviço OData
-   - Persistência real de dados
-   - Autenticação de utilizadores
-
-2. **Funcionalidades Avançadas**
-   - Drag & drop para upload de ficheiros
-   - Preview de PDFs/Vídeos inline
-   - Sistema de favoritos
-   - Comentários e ratings
-
-3. **UI/UX Enhancements**
-   - Tema dark mode
-   - Animações de transição
-   - Responsive melhorado para mobile
-   - Acessibilidade (ARIA labels)
-
-4. **Performance**
-   - Lazy loading de recursos
-   - Cache de pesquisas
-   - Virtual scrolling para listas grandes
-
----
-
-## 📝 Checklist de Autoavaliação
+## Checklist de Autoavaliação
 
 - ✅ Aplicação corre sem erros na consola?
 - ✅ manifest.json contém configuração do JSONModel?
@@ -317,19 +255,19 @@ webapp/
 
 ---
 
-## 📞 Contacto
+## Contacto
 
 **Diogo Castanho**
 
 - GitHub: [github.com/DiogoCastanho](https://github.com/DiogoCastanho)
-- Email: [seu-email@exemplo.com]
+- Email: diogodev06@gmail.com
 
 ---
 
-## 📄 Licença
+## Licença
 
-Este projeto foi desenvolvido para fins académicos no âmbito da Unidade Curricular de IPW (IPS 2025).
+Este projeto foi desenvolvido para fins académicos no âmbito da Unidade Curricular de IPW (IPS 2026).
 
 ---
 
-**Desenvolvido com ❤️ por Diogo Castanho | Janeiro 2025**
+**Desenvolvido por Diogo Castanho | Janeiro 2026**
