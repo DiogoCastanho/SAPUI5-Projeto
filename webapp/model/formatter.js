@@ -18,6 +18,15 @@ sap.ui.define([], function () {
 
     textObrigatorio: function (bObrig) {
       return bObrig ? "Consulta Obrigatória" : "Consulta Facultativa";
+    },
+
+    countResources: function (aRecursos) {
+      return Array.isArray(aRecursos) ? aRecursos.length : 0;
+    },
+
+    boldText: function (sText) {
+      if (!sText) return "";
+      return "<b>" + sText + "</b>";
     }
   };
 });

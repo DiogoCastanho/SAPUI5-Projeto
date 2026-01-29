@@ -1,122 +1,63 @@
 <mvc:View
     controllerName="bs.ui5.projeto.controller.Detail"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.uxap"
-    xmlns:m="sap.m"
+    xmlns="sap.m"
     xmlns:f="sap.ui.layout.form"
-    xmlns:layout="sap.ui.layout"
+    xmlns:l="sap.ui.layout"
     height="100%">
-    <ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true">
-        
-        <headerTitle>
-            <ObjectPageDynamicHeaderTitle>
-                <expandedHeading>
-                    <m:HBox>
-                        <m:Title text="{titulo}" wrapping="true" />
-                    </m:HBox>
-                </expandedHeading>
 
-                <snappedHeading>
-                    <m:FlexBox alignItems="Center">
-                        <m:Title text="{titulo}" wrapping="true" />
-                    </m:FlexBox>
-                </snappedHeading>
-
-                <actions>
-                    <m:Button text="{i18n>btnBack}" icon="sap-icon://nav-back" press="onNavBack" tooltip="{i18n>back}" />
-                </actions>
-            </ObjectPageDynamicHeaderTitle>
-        </headerTitle>
+    <Page
+        id="detailPage"
+        title="{nome}"
+        showNavButton="true"
+        navButtonPress="onNavBack">
 
         <headerContent>
-            <m:FlexBox wrap="Wrap">
-                <layout:VerticalLayout class="sapUiSmallMarginEnd">
-                    <m:Label text="{i18n>codeLabel}" />
-                    <m:Text text="DISC-2026-04" />
-                </layout:VerticalLayout>
-
-                <layout:VerticalLayout class="sapUiSmallMarginEnd">
-                    <m:Label text="{i18n>workloadLabel}" />
-                    <m:Text text="60 Horas" />
-                </layout:VerticalLayout>
-
-                <layout:VerticalLayout>
-                    <m:Label text="{i18n>typeLabel}" />
-                    <m:ObjectStatus text="{tipo}" state="Information" />
-                </layout:VerticalLayout>
-            </m:FlexBox>
+            <Button
+                id="addResourceBtn"
+                text="{i18n>addResource}"
+                icon="sap-icon://add"
+                type="Emphasized" 
+                press="onAddResource" />
         </headerContent>
 
-        <sections>
-            <ObjectPageSection titleUppercase="false" title="{i18n>sectionGeneral}">
-                <subSections>
-                    <ObjectPageSubSection>
-                        <blocks>
-                            <f:SimpleForm editable="false" layout="ColumnLayout">
-                                <f:content>
-                                    <m:Label text="{i18n>labelDescription}" />
-                                    <m:Text text="{descricao}" />
-                                    
-                                    <m:Label text="{i18n>labelMandatory}" />
-                                    <m:CheckBox selected="{obrigatorio}" editable="false" />
-                                    
-                                    <m:Label text="{i18n>labelDepartment}" />
-                                    <m:Text text="Ciência da Computação" />
-                                </f:content>
-                            </f:SimpleForm>
-                        </blocks>
-                    </ObjectPageSubSection>
-                </subSections>
-            </ObjectPageSection>
+        <content>
+            <VBox class="sapUiSmallMargin">
+                
+                <Title 
+                    text="{i18n>sectionResources}" 
+                    level="H3" 
+                    titleStyle="H4"
+                    class="sapUiSmallMarginBottom" />
 
-            <ObjectPageSection titleUppercase="false" title="{i18n>sectionFaculty}">
-                <subSections>
-                    <ObjectPageSubSection>
-                        <blocks>
-                            <m:List headerText="{i18n>listFacultyHeader}">
-                                <m:StandardListItem 
-                                    title="Sr. Vitor Ferreira" 
-                                    description="Professor" 
-                                    icon="sap-icon://employee" />
-                            </m:List>
-                        </blocks>
-                    </ObjectPageSubSection>
-                </subSections>
-            </ObjectPageSection>
-
-            <ObjectPageSection titleUppercase="false" title="{i18n>sectionResources}">
-                <subSections>
-                    <ObjectPageSubSection>
-                        <blocks>
-                            <m:Table>
-                                <m:columns>
-                                    <m:Column><m:Text text="{i18n>tableTitleBooks}" /></m:Column>
-                                    <m:Column><m:Text text="{i18n>tableAuthor}" /></m:Column>
-                                    <m:Column minScreenWidth="Tablet" demandPopin="true"><m:Text text="{i18n>tableLink}" /></m:Column>
-                                </m:columns>
-                                <m:items>
-                                    <m:ColumnListItem>
-                                        <m:cells>
-                                            <m:Text text="Clean Code" />
-                                            <m:Text text="Robert C. Martin" />
-                                            <m:Link text="{i18n>tableLink}" target="_blank" />
-                                        </m:cells>
-                                    </m:ColumnListItem>
-                                </m:items>
-                            </m:Table>
-                        </blocks>
-                    </ObjectPageSubSection>
-                </subSections>
-            </ObjectPageSection>
-        </sections>
-
-        <footer>
-            <m:OverflowToolbar>
-                <m:ToolbarSpacer />
-                <m:Button type="Accept" text="{i18n>btnEnroll}"/>
-                <m:Button type="Transparent" text="{i18n>btnExport}"/>
-            </m:OverflowToolbar>
-        </footer>
-
-    </ObjectPageLayout>
+                <Table 
+                    id="resourcesTable" 
+                    items="{path: 'recursos'}"
+                    growing="true"
+                    growingThreshold="10"
+                    sticky="HeaderToolbar,ColumnHeaders">
+                    <columns>
+                        <Column width="25%"><Text text="{i18n>field.title}" style="Bold"/></Column>
+                        <Column width="15%"><Text text="{i18n>field.type}" /></Column>
+                        <Column width="35%"><Text text="{i18n>field.description}" /></Column>
+                        <Column width="10%" hAlign="Center"><Text text="{i18n>field.mandatory}" /></Column>
+                        <Column width="15%" minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+                            <Text text="{i18n>field.url}" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{titulo}" wrapping="true" renderWhitespace="true" class="sapUiSelectable" />
+                                <Text text="{tipo}" />
+                                <Text text="{descricao}" wrapping="true" />
+                                <CheckBox selected="{obrigatorio}" editable="false" />
+                                <Link text="{i18n>openResource}" href="{url}" target="_blank" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+        </content>
+    </Page>
 </mvc:View>

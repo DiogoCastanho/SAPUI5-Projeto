@@ -11,7 +11,7 @@
           "url": "https://github.com/DiogoCastanho"
         },
         {
-          "titulo": "Análise Matemática || FCTUC Folha 1 (Sucessões e Séries) - 4/5",
+          "titulo": "Análise Matemática II FCTUC Folha 1",
           "tipo": "Vídeo",
           "obrigatorio": false,
           "descricao": "Aula introdutória às séries numéricas.",
@@ -28,6 +28,70 @@
           "obrigatorio": true,
           "descricao": "UI5 Essentials - artigo sobre MVC.",
           "url": "https://exemplo.com/mvc-ui5"
+        },
+        {
+          "titulo": "Clean Code",
+          "tipo": "E-book",
+          "obrigatorio": false,
+          "descricao": "Princípios de escrita de código limpo e sustentável.",
+          "url": "https://exemplo.com/clean-code"
+        }
+      ]
+    },
+    {
+      "nome": "Base de Dados",
+      "recursos": [
+        {
+          "titulo": "Modelação Entidade-Relacionamento",
+          "tipo": "PDF",
+          "obrigatorio": true,
+          "descricao": "Guia prático sobre normalização e diagramas ER.",
+          "url": "https://exemplo.com/db-er"
+        },
+        {
+          "titulo": "SQL Avançado",
+          "tipo": "Curso",
+          "obrigatorio": false,
+          "descricao": "Queries complexas e otimização de performance.",
+          "url": "https://exemplo.com/sql-adv"
+        }
+      ]
+    },
+    {
+      "nome": "Redes de Computadores",
+      "recursos": [
+        {
+          "titulo": "Modelo OSI",
+          "tipo": "Infográfico",
+          "obrigatorio": true,
+          "descricao": "Explicação detalhada das 7 camadas do modelo OSI.",
+          "url": "https://exemplo.com/osi-model"
+        },
+        {
+          "titulo": "Protocolos TCP/IP",
+          "tipo": "Artigo",
+          "obrigatorio": true,
+          "descricao": "Estudo sobre IPV4, IPV6 e roteamento.",
+          "url": "https://exemplo.com/tcp-ip"
+        }
+      ]
+    },
+    {
+      "nome": "Sistemas Operativos",
+      "recursos": [
+        {
+          "titulo": "Gestão de Processos",
+          "tipo": "Documentação",
+          "obrigatorio": true,
+          "descricao": "Scheduling de processos e estados do processador.",
+          "url": "https://exemplo.com/so-processes"
+        },
+        {
+          "titulo": "Comandos Linux (Cheat Sheet)",
+          "tipo": "Imagem",
+          "obrigatorio": false,
+          "descricao": "Guia rápido de comandos de terminal.",
+          "url": "https://exemplo.com/linux-cheat"
         }
       ]
     }

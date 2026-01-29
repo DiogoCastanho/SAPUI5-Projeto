@@ -6,10 +6,14 @@
     "title": "Catálogo de Recursos de Estudo",
     "i18n": {
       "bundleName": "bs.ui5.projeto.i18n.i18n",
-      "supportedLocales": [""],
+      "supportedLocales": [
+        ""
+      ],
       "fallbackLocale": "pt"
     },
-    "applicationVersion": { "version": "1.0.0" }
+    "applicationVersion": {
+      "version": "1.0.0"
+    }
   },
   "sap.ui": {
     "technology": "UI5",
@@ -69,7 +73,7 @@
         },
         {
           "name": "detail",
-          "pattern": "disc/{discIndex}/res/{resIndex}",
+          "pattern": "disc/{discIndex}",
           "target": [
             "detail"
           ]

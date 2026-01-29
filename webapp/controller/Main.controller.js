@@ -51,38 +51,31 @@ sap.ui.define([
       }
     },
 
-    _applyFilterToAllResourceLists: function (sQuery) {
+    onSearch: function (oEvent) {
+      var sQuery = oEvent.getSource().getValue();
       var oDiscList = this.byId("disciplinesList");
-      var aItems = oDiscList.getItems();
+      var oBinding = oDiscList && oDiscList.getBinding("items");
       var aFilters = [];
+
       if (sQuery) {
         aFilters.push(new Filter({
-          path: "titulo",
+          path: "nome",
           operator: FilterOperator.Contains,
           value1: sQuery,
           caseSensitive: false
         }));
       }
-      aItems.forEach(function (oCustomItem) {
-        var oPanel = oCustomItem.getContent()[0];
-        var oInnerList = oPanel.getContent()[0];
-        var oBinding = oInnerList.getBinding("items");
-        if (oBinding) {
-          oBinding.filter(aFilters, "Application");
-        }
-      });
+
+      if (oBinding) {
+        oBinding.filter(aFilters, "Application");
+      }
     },
 
-    onSearch: function (oEvent) {
-      var sQuery = oEvent.getSource().getValue();
-      this._applyFilterToAllResourceLists(sQuery);
-    },
-
-    onItemPress: function (oEvent) {
+    onDiscPress: function (oEvent) {
       var sPath = oEvent.getSource().getBindingContext().getPath();
-      var m = sPath.match(/\/Disciplinas\/(\d+)\/recursos\/(\d+)/);
+      var m = sPath.match(/\/Disciplinas\/(\d+)/);
       if (m) {
-        this.getRouter().navTo("detail", { discIndex: m[1], resIndex: m[2] });
+        this.getRouter().navTo("detail", { discIndex: m[1] });
       }
     },
 
@@ -90,29 +83,15 @@ sap.ui.define([
       var sKey = oEvent.getSource().getSelectedKey();
       if (sKey === "discAsc" || sKey === "discDesc") {
         this._sortDisciplines(sKey === "discDesc");
-      } else {
-        this._sortAllResourceListsByType(sKey === "typeDesc");
       }
     },
 
     _sortDisciplines: function (bDescending) {
       var oDiscList = this.byId("disciplinesList");
-      var oBinding = oDiscList.getBinding("items");
+      var oBinding = oDiscList && oDiscList.getBinding("items");
       if (oBinding) {
-        oBinding.sort([ new Sorter("nome", bDescending) ]);
+        oBinding.sort([new Sorter("nome", bDescending)]);
       }
-    },
-
-    _sortAllResourceListsByType: function (bDescending) {
-      var oDiscList = this.byId("disciplinesList");
-      oDiscList.getItems().forEach(function (oCustomItem) {
-        var oPanel = oCustomItem.getContent()[0];
-        var oInnerList = oPanel.getContent()[0];
-        var oBinding = oInnerList.getBinding("items");
-        if (oBinding) {
-          oBinding.sort([ new Sorter("tipo", bDescending) ]);
-        }
-      });
     },
 
   });
