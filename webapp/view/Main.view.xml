@@ -5,7 +5,7 @@
     xmlns:core="sap.ui.core"
     displayBlock="true">
 
-    <Page id="mainPage" title="{i18n>appTitle}" titleStyle="H3" backgroundDesign="List">
+    <Page id="mainPage" title="{i18n>appTitle}" backgroundDesign="List">
         <headerContent>
             <Button 
                 id="aboutBtn" 
