@@ -32,12 +32,12 @@
             <m:FlexBox wrap="Wrap">
                 <layout:VerticalLayout class="sapUiSmallMarginEnd">
                     <m:Label text="{i18n>codeLabel}" />
-                    <m:Text text="DISC-2026-04" />
+                    <m:Text text="{i18n>labelCode}" />
                 </layout:VerticalLayout>
 
                 <layout:VerticalLayout class="sapUiSmallMarginEnd">
                     <m:Label text="{i18n>workloadLabel}" />
-                    <m:Text text="60 Horas" />
+                    <m:Text text="{i18n>workloadLabelT}" />
                 </layout:VerticalLayout>
 
                 <layout:VerticalLayout>
@@ -61,7 +61,7 @@
                                     <m:CheckBox selected="{obrigatorio}" editable="false" />
                                     
                                     <m:Label text="{i18n>labelDepartment}" />
-                                    <m:Text text="Ciência da Computação" />
+                                    <m:Text text="{i18n>labelDepartmentN}" />
                                 </f:content>
                             </f:SimpleForm>
                         </blocks>
@@ -75,8 +75,8 @@
                         <blocks>
                             <m:List headerText="{i18n>listFacultyHeader}">
                                 <m:StandardListItem 
-                                    title="Sr. Vitor Ferreira" 
-                                    description="Professor" 
+                                    title="{i18n>listFacultyTitle}" 
+                                    description="{i18n>listFacultyDescription}" 
                                     icon="sap-icon://employee" />
                             </m:List>
                         </blocks>
@@ -97,8 +97,8 @@
                                 <m:items>
                                     <m:ColumnListItem>
                                         <m:cells>
-                                            <m:Text text="Clean Code" />
-                                            <m:Text text="Robert C. Martin" />
+                                            <m:Text text="{i18n>resourcesName}" />
+                                            <m:Text text="{i18n>resourcesT}" />
                                             <m:Link text="{i18n>tableLink}" target="_blank" />
                                         </m:cells>
                                     </m:ColumnListItem>

@@ -52,8 +52,8 @@ sap.ui.define([
     },
 
     _applyFilterToAllResourceLists: function (sQuery) {
-      var oDiscList = this.byId("disciplinesList");
-      var aItems = oDiscList.getItems();
+      var oDiscList = this.byId("disciplinesList"); // get de todas as disciplinas
+      var aItems = oDiscList.getItems(); // retornar um array para cada disciplina
       var aFilters = [];
       if (sQuery) {
         aFilters.push(new Filter({
@@ -66,7 +66,7 @@ sap.ui.define([
       aItems.forEach(function (oCustomItem) {
         var oPanel = oCustomItem.getContent()[0];
         var oInnerList = oPanel.getContent()[0];
-        var oBinding = oInnerList.getBinding("items");
+        var oBinding = oInnerList.getBinding("items"); // controla que items aparecem na lista
         if (oBinding) {
           oBinding.filter(aFilters, "Application");
         }
@@ -74,16 +74,14 @@ sap.ui.define([
     },
 
     onSearch: function (oEvent) {
-      var sQuery = oEvent.getSource().getValue();
+      var sQuery = oEvent.getSource().getValue(); // texto q o utilizador escreveu
       this._applyFilterToAllResourceLists(sQuery);
     },
 
     onItemPress: function (oEvent) {
-      // Disciplina/0/Recursos/1
       var sPath = oEvent.getSource().getBindingContext().getPath();
       /* .getBindingContext()
-          Cada item da lista está ligado a um objeto dos dados portanto
-          retorna o contexto de binding desse item */
+          retorna o binding desse item */
       var m = sPath.match(/\/Disciplinas\/(\d+)\/recursos\/(\d+)/);
       if (m) {
         this.getRouter().navTo("detail", { discIndex: m[1], resIndex: m[2] });
@@ -103,7 +101,7 @@ sap.ui.define([
       var oDiscList = this.byId("disciplinesList");
       var oBinding = oDiscList.getBinding("items");
       if (oBinding) {
-        oBinding.sort([ new Sorter("nome", bDescending) ]);
+        oBinding.sort([new Sorter("nome", bDescending)]);
       }
     },
 
@@ -114,7 +112,7 @@ sap.ui.define([
         var oInnerList = oPanel.getContent()[0];
         var oBinding = oInnerList.getBinding("items");
         if (oBinding) {
-          oBinding.sort([ new Sorter("tipo", bDescending) ]);
+          oBinding.sort([new Sorter("tipo", bDescending)]);
         }
       });
     },

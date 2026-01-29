@@ -8,14 +8,14 @@
           "tipo": "Livro",
           "obrigatorio": true,
           "descricao": "Apontamentos, Instituto Superior Técnico - Departamento de Matemática",
-          "url": "https://github.com/DiogoCastanho"
+          "url": "https://ui5.sap.com/"
         },
         {
           "titulo": "Análise Matemática || FCTUC Folha 1 (Sucessões e Séries) - 4/5",
           "tipo": "Vídeo",
           "obrigatorio": false,
           "descricao": "Aula introdutória às séries numéricas.",
-          "url": "https://exemplo.com/series"
+          "url": "https://ui5.sap.com/#/topic/bc410e94e46540efa02857e15aae583f"
         }
       ]
     },
@@ -27,7 +27,7 @@
           "tipo": "Artigo",
           "obrigatorio": true,
           "descricao": "UI5 Essentials - artigo sobre MVC.",
-          "url": "https://exemplo.com/mvc-ui5"
+          "url": "https://ui5.sap.com/#/topic/2e61ab6c68a2480eb666c1927a707658?q=Obect%20Page%20Layout"
         }
       ]
     }
