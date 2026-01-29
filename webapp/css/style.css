@@ -1,13 +1,21 @@
 .sapMPageHeader .sapMBarChild.sapMTitle {
-    font-weight: bold !important;
+  font-weight: bold !important;
 }
 
 .customListStyle .sapMObjLTitle {
-    font-weight: bold !important;
+  font-weight: bold !important;
 }
 
 .customListStyle .sapMObjLIcon {
-    font-size: 2rem !important;
-    width: 2rem !important;
-    height: 2rem !important;
+  font-size: 2rem !important;
+  width: 2rem !important;
+  height: 2rem !important;
+}
+
+.boldFolderIcon .sapUiIcon {
+  text-shadow:
+    0.5px 0 0 currentColor,
+    -0.5px 0 0 currentColor,
+    0 0.5px 0 currentColor,
+    0 -0.5px 0 currentColor;
 }

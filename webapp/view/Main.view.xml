@@ -46,14 +46,22 @@
                 width="auto">
                 <ObjectListItem
                     title="{nome}"
-                    number="{
-                        parts: ['recursos', 'i18n>resourceCount', 'i18n>resourceCountSingular'],
-                        formatter: '.formatter.formatResourceCount'
-                    }"
-                    numberUnit=""
                     type="Navigation"
-                    icon="sap-icon://education"
-                    press="onDiscPress" />
+                    icon="sap-icon://folder"
+                    class="boldFolderIcon"
+                    press="onDiscPress">
+
+                    <attributes>
+                        <ObjectAttribute
+                            active="false"
+                            class="resourceCountAttr"
+                            text="{
+                                parts: [{path: 'recursos'}, {path: 'i18n>resourceCount'}, {path: 'i18n>resourceCountSingular'}],
+                                formatter: '.formatter.formatResourceCount'
+                            }"/>
+                    </attributes>
+
+                </ObjectListItem>
             </List>
         </content>
     </Page>
