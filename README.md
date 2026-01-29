@@ -6,7 +6,8 @@
 - **Unidade Curricular**: IPW
 - **Projeto**: Aplicação SAPUI5 - Catálogo de Recursos de Estudo
 - **Docente**: Vitor Ferreira
-- **Autor**: Diogo Castanho (Individual)
+- # **Autor**: Diogo Castanho
+- **Autor**: Diogo Castanho
 - **Local**: Setúbal, Portugal
 - **Data**: Janeiro 2026
 
@@ -27,6 +28,8 @@ Aplicação SAPUI5 desenvolvida para permitir aos estudantes consultar materiais
 - ✅ Pesquisa e filtros funcionais
 - ✅ Validação defensiva de dados
 - ✅ UX polida e responsiva
+
+---
 
 ## Instruções de Execução
 
@@ -66,49 +69,6 @@ npm run build
 npm test
 
 ---
-
-## Funcionalidades Implementadas
-
-### Funcionalidades Obrigatórias
-
-1. **Página Principal**
-   - Lista de disciplinas organizada
-   - Pesquisa por nome de disciplina (case-insensitive)
-   - Ordenação ascendente/descendente
-   - **Nível A Extra**: Contagem de recursos por disciplina
-
-2. **Página de Detalhe**
-   - Tabela completa de recursos
-   - Botão "Voltar" funcional
-   - **Nível B Extra**: Pesquisa estendida (título, tipo, descrição)
-   - Botão para adicionar recursos (sem persistência)
-   - Botão para limpar pesquisa
-
-3. **Diálogo "Sobre"**
-   - Implementado como Fragment
-   - Informações do autor e projeto
-   - Ícone "information" no header
-
-4. **Internacionalização (i18n)**
-   - ✅ Português (PT) - i18n.properties
-   - ✅ Inglês (EN) - i18n_en.properties
-   - Todos os textos externalizados
-
-5. **Formatters**
-   - `formatResourceCount`: Conta recursos (singular/plural)
-   - `formatDescription`: Validação defensiva com fallback
-   - `iconByType`: Ícones dinâmicos por tipo
-   - `stateByObrigatorio`: Estados visuais
-   - `hasValidUrl`: Validação de URLs
-
-6. **Routing**
-   - Navegação Main ↔ Detail
-   - Parâmetros de rota funcionais
-   - History management
-
----
-
-## Funcionalidades Extras Implementadas (Secção 14)
 
 ### Nível A - Informação Adicional (+1 valor)
 
@@ -213,48 +173,6 @@ webapp/
 
 ---
 
-## Avaliação Estimada
-
-### Critérios Cumpridos
-
-| Critério                   | Pontos | Status      |
-| -------------------------- | ------ | ----------- |
-| **Básico**                 | 10-12  | ✅ Completo |
-| - Lista funcional          | ✓      | ✅          |
-| - Data binding             | ✓      | ✅          |
-| - i18n aplicado            | ✓      | ✅          |
-| **Intermédio**             | 13-15  | ✅ Completo |
-| - Múltiplas disciplinas    | ✓      | ✅          |
-| - MVC coerente             | ✓      | ✅          |
-| - Pesquisa funcional       | ✓      | ✅          |
-| - Código organizado        | ✓      | ✅          |
-| **Avançado**               | 16-18  | ✅ Completo |
-| - Formatters implementados | ✓      | ✅          |
-| - Fragment "Sobre"         | ✓      | ✅          |
-| - UX cuidada               | ✓      | ✅          |
-| **Excelência**             | 19-20  | ✅ Completo |
-| - Routing completo         | ✓      | ✅          |
-| - Detalhe rico             | ✓      | ✅          |
-| - Experiência polida       | ✓      | ✅          |
-| **Extras (Secção 14)**     | +3     | ✅ Completo |
-| - Nível A                  | +1     | ✅          |
-| - Nível B                  | +1     | ✅          |
-| - Nível C                  | +1     | ✅          |
-
-### Nota Estimada: **20/20**
-
-**Base:** 19-20 pontos (Excelência)
-**Extras:** +3 pontos (1 de cada nível A, B, C)
-**Total:** 20/20 (limitado ao máximo)
-
----
-
-## Demonstração em Vídeo
-
-[Adicionar link para vídeo de demonstração de 2-3 minutos - Opcional]
-
----
-
 ## Limitações Conhecidas
 
 1. **Persistência de Dados**
@@ -269,32 +187,6 @@ webapp/
 3. **Pesquisa**
    - Case-insensitive mas não trata acentos
    - Não suporta operadores booleanos (AND/OR explícitos)
-
----
-
-## Melhorias Futuras Sugeridas
-
-1. **Backend Integration**
-   - Conectar a um serviço OData
-   - Persistência real de dados
-   - Autenticação de utilizadores
-
-2. **Funcionalidades Avançadas**
-   - Drag & drop para upload de ficheiros
-   - Preview de PDFs/Vídeos inline
-   - Sistema de favoritos
-   - Comentários e ratings
-
-3. **UI/UX Enhancements**
-   - Tema dark mode
-   - Animações de transição
-   - Responsive melhorado para mobile
-   - Acessibilidade (ARIA labels)
-
-4. **Performance**
-   - Lazy loading de recursos
-   - Cache de pesquisas
-   - Virtual scrolling para listas grandes
 
 ---
 
@@ -323,7 +215,7 @@ webapp/
 
 ## Licença
 
-Este projeto foi desenvolvido para fins académicos no âmbito da Unidade Curricular de IPW (IPS 2025).
+Este projeto foi desenvolvido para fins académicos no âmbito da Unidade Curricular de IPW (IPS 2026).
 
 ---
 

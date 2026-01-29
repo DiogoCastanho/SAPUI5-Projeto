@@ -5,7 +5,7 @@
     xmlns:core="sap.ui.core"
     displayBlock="true">
 
-    <Page id="mainPage" title="{i18n>appTitle}" backgroundDesign="List">
+    <Page id="mainPage" title="{i18n>appTitle}" titleLevel="H1" backgroundDesign="List">
         <headerContent>
             <Button 
                 id="aboutBtn" 
@@ -46,14 +46,22 @@
                 width="auto">
                 <ObjectListItem
                     title="{nome}"
-                    number="{
-                        parts: ['recursos', 'i18n>resourceCount', 'i18n>resourceCountSingular'],
-                        formatter: '.formatter.formatResourceCount'
-                    }"
-                    numberUnit=""
                     type="Navigation"
                     icon="sap-icon://folder"
-                    press="onDiscPress" />
+                    class="boldFolderIcon"
+                    press="onDiscPress">
+
+                    <attributes>
+                        <ObjectAttribute
+                            active="false"
+                            class="resourceCountAttr"
+                            text="{
+                                parts: [{path: 'recursos'}, {path: 'i18n>resourceCount'}, {path: 'i18n>resourceCountSingular'}],
+                                formatter: '.formatter.formatResourceCount'
+                            }"/>
+                    </attributes>
+
+                </ObjectListItem>
             </List>
         </content>
     </Page>

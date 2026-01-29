@@ -8,14 +8,14 @@
           "tipo": "Livro",
           "obrigatorio": true,
           "descricao": "Apontamentos, Instituto Superior Técnico - Departamento de Matemática",
-          "url": "https://github.com/DiogoCastanho"
+          "url": "https://ui5.sap.com/"
         },
         {
           "titulo": "Análise Matemática II FCTUC Folha 1",
           "tipo": "Vídeo",
           "obrigatorio": false,
           "descricao": "Aula introdutória às séries numéricas.",
-          "url": "https://exemplo.com/series"
+          "url": "https://ui5.sap.com/"
         }
       ]
     },
@@ -27,7 +27,7 @@
           "tipo": "E-book",
           "obrigatorio": false,
           "descricao": "Princípios de escrita de código limpo e sustentável.",
-          "url": "https://exemplo.com/clean-code"
+          "url": "https://ui5.sap.com/"
         }
       ]
     },
@@ -39,14 +39,14 @@
           "tipo": "PDF",
           "obrigatorio": true,
           "descricao": "Guia prático sobre normalização e diagramas ER.",
-          "url": "https://exemplo.com/db-er"
+          "url": "https://ui5.sap.com/"
         },
         {
           "titulo": "SQL Avançado",
           "tipo": "Curso",
           "obrigatorio": false,
           "descricao": "Queries complexas e otimização de performance.",
-          "url": "https://exemplo.com/sql-adv"
+          "url": "https://ui5.sap.com/"
         }
       ]
     },
@@ -58,7 +58,7 @@
           "tipo": "Artigo",
           "obrigatorio": true,
           "descricao": "Estudo sobre IPV4, IPV6 e roteamento.",
-          "url": "https://exemplo.com/tcp-ip"
+          "url": "https://ui5.sap.com/"
         }
       ]
     },
@@ -70,7 +70,7 @@
           "tipo": "Imagem",
           "obrigatorio": false,
           "descricao": "Guia rápido de comandos de terminal.",
-          "url": "https://exemplo.com/linux-cheat"
+          "url": "https://ui5.sap.com/"
         }
       ]
     }

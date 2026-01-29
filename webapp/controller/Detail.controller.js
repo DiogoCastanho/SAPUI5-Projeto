@@ -23,7 +23,6 @@ sap.ui.define([
       this._sDiscPath = "/Disciplinas/" + oArgs.discIndex;
       this.getView().bindElement({ path: this._sDiscPath });
       
-      // Limpar filtros ao entrar na página
       var oTable = this.byId("resourcesTable");
       if (oTable) {
         var oBinding = oTable.getBinding("items");
@@ -44,10 +43,6 @@ sap.ui.define([
       }
     },
 
-    /**
-     * Nível B: Pesquisa estendida à descrição
-     * Pesquisa nos campos título, tipo e descrição dos recursos
-     */
     onSearchResources: function (oEvent) {
       var sQuery = oEvent.getParameter("query") || oEvent.getParameter("newValue") || "";
       var oTable = this.byId("resourcesTable");
@@ -58,7 +53,6 @@ sap.ui.define([
       var aFilters = [];
       
       if (sQuery && sQuery.trim()) {
-        // Pesquisa em múltiplos campos: título, tipo e descrição
         aFilters.push(
           new Filter({
             filters: [
@@ -74,9 +68,6 @@ sap.ui.define([
       oBinding.filter(aFilters);
     },
 
-    /**
-     * Botão para limpar pesquisa (Nível B adicional)
-     */
     onClearSearch: function () {
       var oSearchField = this.byId("resourceSearchField");
       if (oSearchField) {
@@ -112,10 +103,6 @@ sap.ui.define([
       }
     },
 
-    /**
-     * Nível C: Validação defensiva dos dados
-     * Valida campos obrigatórios e trata dados ausentes
-     */
     onAddResourceSave: function () {
       if (!this._sDiscPath) {
         MessageBox.error("Disciplina não encontrada.");
@@ -124,28 +111,24 @@ sap.ui.define([
   
       var oModel = this.getView().getModel();
       
-      // Capturar referências dos inputs
       var oTitleInput = this.byId("newResTitle");
       var oUrlInput = this.byId("newResUrl");
       var oTypeSelect = this.byId("newResType");
       var oDescArea = this.byId("newResDescription");
       var oMandatoryCB = this.byId("newResMandatory");
   
-      // Validação defensiva - resetar estados
       oTitleInput.setValueState("None");
       oUrlInput.setValueState("None");
       oDescArea.setValueState("None");
 
       var bError = false;
       
-      // Validar título (obrigatório)
       if (!oTitleInput.getValue().trim()) {
         oTitleInput.setValueState("Error");
         oTitleInput.setValueStateText("Título é obrigatório");
         bError = true;
       }
       
-      // Validar URL (obrigatório)
       var sUrl = oUrlInput.getValue().trim();
       if (!sUrl) {
         oUrlInput.setValueState("Warning");
@@ -157,16 +140,14 @@ sap.ui.define([
         return;
       }
   
-      // Criar objeto com validação defensiva
       var oNewRes = {
         titulo: oTitleInput.getValue().trim(),
         tipo: oTypeSelect.getSelectedKey() || "Outro",
-        descricao: oDescArea.getValue().trim() || "Sem descrição disponível", // Fallback
+        descricao: oDescArea.getValue().trim() || "Sem descrição disponível",
         obrigatorio: oMandatoryCB.getSelected(), 
-        url: sUrl || "" // Pode ser vazio
+        url: sUrl || ""
       };
   
-      // Atualizar o Modelo
       var sRecursosPath = this._sDiscPath + "/recursos";
       var aRecursos = oModel.getProperty(sRecursosPath) || [];
       var aNewRecursos = [...aRecursos, oNewRes]; 
@@ -174,14 +155,12 @@ sap.ui.define([
   
       MessageToast.show("Recurso adicionado com sucesso!");
   
-      // Reset dos campos
       oTitleInput.setValue("").setValueState("None");
       oUrlInput.setValue("").setValueState("None");
       oTypeSelect.setSelectedKey("Livro"); 
       oDescArea.setValue("").setValueState("None");
       oMandatoryCB.setSelected(false);
   
-      // Fechar o diálogo
       if (this._oAddResourceDialog) {
         this._oAddResourceDialog.close();
       }

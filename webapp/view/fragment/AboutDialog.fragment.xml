@@ -13,7 +13,7 @@
       </VBox>
     </content>
     <beginButton>
-      <Button text="OK" type="Emphasized" press= ".onCloseAbout"/>
+      <Button text="{i18n>aboutButton}" type="Emphasized" press= ".onCloseAbout"/>
     </beginButton>
   </Dialog>
 </core:FragmentDefinition>

@@ -30,7 +30,6 @@
                     titleStyle="H4"
                     class="sapUiSmallMarginBottom" />
 
-                <!-- Nível B: Pesquisa estendida à descrição -->
                 <Toolbar>
                     <SearchField
                         id="resourceSearchField"
@@ -71,7 +70,6 @@
                             <cells>
                                 <Text text="{titulo}" wrapping="true" />
                                 <Text text="{tipo}" />
-                                <!-- Nível C: Validação defensiva - mostrar texto alternativo se descrição vazia -->
                                 <Text 
                                     text="{
                                         path: 'descricao',
@@ -79,7 +77,6 @@
                                     }" 
                                     wrapping="true" />
                                 <CheckBox selected="{obrigatorio}" editable="false" />
-                                <!-- Nível C: Validação defensiva - esconder link se URL vazia -->
                                 <Link 
                                     text="{i18n>openResource}" 
                                     href="{url}" 

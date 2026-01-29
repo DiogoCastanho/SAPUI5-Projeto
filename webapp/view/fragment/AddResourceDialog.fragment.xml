@@ -12,7 +12,7 @@
                 layout="ColumnLayout">
                 <f:content>
                     <Label text="{i18n>field.title}" required="true" />
-                    <Input id="newResTitle" placeholder="Ex: Manual de UI5" />
+                    <Input id="newResTitle" placeholder="{i18n>dialogTitle}" />
 
                     <Label text="{i18n>field.type}" />
                     <Select id="newResType" width="100%">
@@ -24,13 +24,13 @@
                     </Select>
 
                     <Label text="{i18n>field.url}" required="true" />
-                    <Input id="newResUrl" type="Url" placeholder="https://..." />
+                    <Input id="newResUrl" type="Url" placeholder="{i18n>dialogUrl}" />
 
                     <Label text="{i18n>field.description}" />
-                    <TextArea id="newResDescription" rows="2" placeholder="Breve nota sobre o recurso" />
+                    <TextArea id="newResDescription" rows="2" placeholder="{i18n>dialogDescription}" />
 
                     <Label text="{i18n>field.mandatory}" />
-                    <CheckBox id="newResMandatory" text="Este recurso é essencial" />
+                    <CheckBox id="newResMandatory" text="{i18n>dialogCheckBox}" />
                 </f:content>
             </f:SimpleForm>
         </content>
